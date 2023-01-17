@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Service
 @Scope("prototype")
 @Getter
 @Setter
 public class Cart {
+
     private List<Product> cartList;
 
     public Cart(List<Product> cartList) {
@@ -27,6 +29,5 @@ public class Cart {
                 .peek(System.out::println)
                 .collect(Collectors.toList());
     }
-
 
 }

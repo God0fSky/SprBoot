@@ -19,6 +19,7 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class SprBootApplication {
+
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -36,12 +37,12 @@ public class SprBootApplication {
         buyStage(cart, productRepository, cartService);
     }
 
-
     public static boolean buyStage(Cart cart, ProductRepository productRepository,
                                    CartService cartService) {
 
         Scanner scanner = new Scanner(System.in);
         int answer;
+
         System.out.println("Enter 1 to add product or 2 to remove product");
         answer = scanner.nextInt();
         if (answer == 1) {
@@ -57,6 +58,7 @@ public class SprBootApplication {
             removeProductFromCart(cart, productRepository, cartService, id);
         }
         showCart(cart);
+
         System.out.println("Enter 1 to finish, 2 to resume or 3 to create new cart");
         answer = scanner.nextInt();
         if (answer == 1) {
@@ -66,7 +68,6 @@ public class SprBootApplication {
             buyStage(cart, productRepository, cartService);
         }
         if (answer == 3) {
-
             buyStage(createCart(), productRepository, cartService);
         }
         return true;
@@ -77,6 +78,7 @@ public class SprBootApplication {
         List<Product> list = new ArrayList<>();
         return new Cart(list);
     }
+
     public static void showRepository(ProductRepository productRepository) {
         productRepository.printAllProducts();
     }

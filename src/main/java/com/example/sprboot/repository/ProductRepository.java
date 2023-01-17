@@ -14,9 +14,8 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class ProductRepository {
+
     private List<Product> productList;
-
-
 
     public void printAllProducts() {
         System.out.println("Available products");
@@ -32,4 +31,5 @@ public class ProductRepository {
                 .peek(p -> System.out.println(p))
                 .collect(Collectors.toList());
     }
+
 }

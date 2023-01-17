@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 @Configuration
 public class ProductConfig {
+
     @Bean
     public Product product1() {
         return new Product(1, "name1", BigDecimal.valueOf(10));
@@ -22,4 +23,5 @@ public class ProductConfig {
     public Product product3() {
         return new Product(3, "name3", BigDecimal.valueOf(30));
     }
+
 }
