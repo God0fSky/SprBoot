@@ -1,20 +1,14 @@
 package com.example.sprboot;
 
 import com.example.sprboot.model.Cart;
-import com.example.sprboot.model.Product;
 import com.example.sprboot.repository.ProductRepository;
 import com.example.sprboot.service.CartService;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -68,15 +62,9 @@ public class SprBootApplication {
             buyStage(cart, productRepository, cartService);
         }
         if (answer == 3) {
-            buyStage(createCart(), productRepository, cartService);
+            buyStage(cart.createCart(), productRepository, cartService);
         }
         return true;
-    }
-
-    @Bean
-    public static Cart createCart() {
-        List<Product> list = new ArrayList<>();
-        return new Cart(list);
     }
 
     public static void showRepository(ProductRepository productRepository) {
